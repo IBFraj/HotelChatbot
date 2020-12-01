@@ -1,4 +1,5 @@
 import request from "request";
+import homepageService from "../services/homepageService";
 
 const PAGE_ACCESS_TOKEN =
   "EAADZAfbtciMUBAKJgZC6XGsG8ZA7FmrfP1VnzOUuiGgHVlOJkPxs5aMQQeiqaD9GYl2uZAlwUxcsjEDOZCc7XcpvZBYFBZBIklOSjnDx2Kc07c3vZBlVrtyn7BL1lzOULacOCGQhTfN9U5FLTKXuUwZAW3jUS7ilbCThnNVaVzbAEZCwZDZD";
@@ -148,8 +149,17 @@ let callSendAPI = (sender_psid, response) => {
     }
   );
 };
+let handleSetupProfile = async (req, res) => {
+  try {
+    await homepageService.handleSetupProfileAPI();
+    return res.redirect("/");
+  } catch (e) {
+    console.log(e);
+  }
+};
 module.exports = {
   getHomePage: getHomePage,
   getWebhook: getWebhook,
   postWebhook: postWebhook,
+  handleSetupProfile: handleSetupProfile,
 };
