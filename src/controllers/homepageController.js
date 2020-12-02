@@ -107,7 +107,7 @@ let handleMessage = (sender_psid, received_message) => {
   callSendAPI(sender_psid, response);
 };
 // Handles messaging postbackevents
-let handlePostback = (sender_psid, received_postback) => {
+let handlePostback = async (sender_psid, received_postback) => {
   let response;
 
   // Get the payload for the postback
@@ -122,7 +122,10 @@ let handlePostback = (sender_psid, received_postback) => {
       response = { text: "Oops, try sending another image." };
       break;
     case "GET_STARTED":
-      response = { text: "hi there welcome to the jungle" };
+      let username = await homepageService.getFacebookUsername(sender_psid);
+      response = {
+        text: `Hi there, welcome ${username} to our moodyMoon Hotel`,
+      };
       break;
     default:
       console.log("run default switch case");
