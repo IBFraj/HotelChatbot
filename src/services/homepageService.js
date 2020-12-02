@@ -19,30 +19,18 @@ let handleSetupProfileAPI = () => {
               {
                 type: "postback",
                 title: "Talk to an agent",
-                payload: "TALK_AGENT",
+                payload: "CARE_HELP",
               },
               {
                 type: "postback",
-                title: "Restart this conversation",
-                payload: "RESTART_CONVERSATION",
+                title: "Outfit suggestions",
+                payload: "CURATION",
               },
               {
-                type: "nested",
-                title: "More info",
-                call_to_actions: [
-                  {
-                    type: "web_url",
-                    title: "View Facebook Fan Page",
-                    url: "https://www.facebook.com/haryphamdev",
-                    webview_height_ratio: "full",
-                  },
-                  {
-                    type: "web_url",
-                    title: "View Youtube channel",
-                    url: "https://bit.ly/subscribe-haryphamdev",
-                    webview_height_ratio: "full",
-                  },
-                ],
+                type: "web_url",
+                title: "Shop now",
+                url: "https://www.originalcoastclothing.com/",
+                webview_height_ratio: "full",
               },
             ],
           },
