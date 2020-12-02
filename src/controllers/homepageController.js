@@ -157,9 +157,13 @@ let handleSetupProfile = async (req, res) => {
     console.log(e);
   }
 };
+let getSetupProfilePage = (req, res) => {
+  return res.render("profile.ejs");
+};
 module.exports = {
   getHomePage: getHomePage,
   getWebhook: getWebhook,
   postWebhook: postWebhook,
   handleSetupProfile: handleSetupProfile,
+  getSetupProfilePage: getSetupProfilePage,
 };
