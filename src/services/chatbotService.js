@@ -30,13 +30,13 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
         quick_replies: [
           {
             content_type: "text",
-            title: "Categories",
-            payload: "CATEGORIES",
+            title: "Categories rooms",
+            payload: "CATEGORIES ROOMS",
           },
           {
             content_type: "text",
-            title: "Lookup Order",
-            payload: "LOOKUP_ORDER",
+            title: "reservation",
+            payload: "RESERVATION",
           },
           {
             content_type: "text",
