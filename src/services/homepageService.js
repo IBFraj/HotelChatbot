@@ -23,12 +23,12 @@ let handleSetupProfileAPI = () => {
               },
               {
                 type: "postback",
-                title: "Outfit suggestions",
+                title: "Restart this conversation",
                 payload: "CURATION",
               },
               {
                 type: "web_url",
-                title: "Shop now",
+                title: "View website",
                 url: "https://www.originalcoastclothing.com/",
                 webview_height_ratio: "full",
               },
