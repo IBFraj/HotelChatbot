@@ -125,9 +125,6 @@ let handlePostback = async (sender_psid, received_postback) => {
     default:
       console.log("run default switch case");
   }
-
-  // Send the message to acknowledge the postback
-  await chatbotService.sendMessage(sender_psid, response);
 };
 
 let handleSetupProfile = async (req, res) => {
