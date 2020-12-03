@@ -24,19 +24,18 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
           "At any time, use the menu below to navigate through the features.",
       };
 
-      //quick reply
       let response4 = {
         text: "What can I do to help you today?",
         quick_replies: [
           {
             content_type: "text",
-            title: "Categories rooms",
-            payload: "CATEGORIES ROOMS",
+            title: "Categories",
+            payload: "CATEGORIES",
           },
           {
             content_type: "text",
-            title: "reservation",
-            payload: "RESERVATION",
+            title: "Lookup Order",
+            payload: "LOOKUP_ORDER",
           },
           {
             content_type: "text",
