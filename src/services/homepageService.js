@@ -102,6 +102,7 @@ let sendTypingOn = (sender_psid) => {
         },
         (err, res, body) => {
           if (!err) {
+            console.log(body);
             resolve("done!");
           } else {
             reject("Unable to send message:" + err);
@@ -132,6 +133,7 @@ let markMessageRead = (sender_psid) => {
         },
         (err, res, body) => {
           if (!err) {
+            console.log(body);
             resolve("done!");
           } else {
             reject("Unable to send message:" + err);
