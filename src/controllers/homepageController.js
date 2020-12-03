@@ -1,8 +1,5 @@
-import request from "request";
+import chatbotService from "../services/chatbotService";
 import homepageService from "../services/homepageService";
-
-const PAGE_ACCESS_TOKEN =
-  "EAADZAfbtciMUBAKJgZC6XGsG8ZA7FmrfP1VnzOUuiGgHVlOJkPxs5aMQQeiqaD9GYl2uZAlwUxcsjEDOZCc7XcpvZBYFBZBIklOSjnDx2Kc07c3vZBlVrtyn7BL1lzOULacOCGQhTfN9U5FLTKXuUwZAW3jUS7ilbCThnNVaVzbAEZCwZDZD";
 
 let getHomePage = (req, res) => {
   return res.render("homepage.ejs");
@@ -62,7 +59,7 @@ let postWebhook = (req, res) => {
   }
 };
 // Handles messages events
-let handleMessage = (sender_psid, received_message) => {
+let handleMessage = async (sender_psid, received_message) => {
   let response;
 
   // Check if the message contains text
@@ -104,7 +101,7 @@ let handleMessage = (sender_psid, received_message) => {
   }
 
   // Sends the response message
-  callSendAPI(sender_psid, response);
+  await chatbotService.sendMessage(sender_psid, response);
 };
 // Handles messaging postbackevents
 let handlePostback = async (sender_psid, received_postback) => {
@@ -122,47 +119,17 @@ let handlePostback = async (sender_psid, received_postback) => {
       response = { text: "Oops, try sending another image." };
       break;
     case "GET_STARTED":
-      let username = await homepageService.getFacebookUsername(sender_psid);
-      response = {
-        text: `Hi there, welcome ${username} to our moodyMoon Hotel`,
-      };
+      await chatbotService.sendMessageWelcomeNewUser(sender_psid);
+
       break;
     default:
       console.log("run default switch case");
   }
 
   // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+  await chatbotService.sendMessage(sender_psid, response);
 };
-//Sends response messages via the send API
-let callSendAPI = async (sender_psid, response) => {
-  await homepageService.markMessageRead(sender_psid);
-  await homepageService.sendTypingOn(sender_psid);
-  // Construct the message body
-  let request_body = {
-    recipient: {
-      id: sender_psid,
-    },
-    message: response,
-  };
 
-  // Send the HTTP request to the Messenger Platform
-  request(
-    {
-      uri: "https://graph.facebook.com/v6.0/me/messages",
-      qs: { access_token: PAGE_ACCESS_TOKEN },
-      method: "POST",
-      json: request_body,
-    },
-    (err, res, body) => {
-      if (!err) {
-        console.log("message sent!");
-      } else {
-        console.error("Unable to send message:" + err);
-      }
-    }
-  );
-};
 let handleSetupProfile = async (req, res) => {
   try {
     await homepageService.handleSetupProfileAPI();
