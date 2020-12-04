@@ -27,7 +27,7 @@ let handleSetupProfileAPI = () => {
                 payload: "CURATION",
               },
               {
-                type: "web_url",
+                type: "postback",
                 title: "View website",
                 url: "https://www.originalcoastclothing.com/",
                 webview_height_ratio: "full",
