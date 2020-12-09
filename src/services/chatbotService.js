@@ -133,17 +133,21 @@ let showSDR = (sender_psid) => {
     try {
       let response1 = {
         text: "Room area - 25 métre carré  ",
+      };
+      let response2 = {
         text: "Ideal for : 2 adults  ",
+      };
+      let response3 = {
         text:
           "*Please note: no extra bed/children's cots/cribs possible in this room type.",
       };
-      let response2 = templateMessage.sendSDRTemplate();
-      let response3 = {
-        text: "Room Facilities : ",
+
+      let response4 = templateMessage.sendSDRTemplate();
+      let response5 = {
         text:
-          "Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi ",
+          "Room Facilities : Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi ",
       };
-      let response4 = {
+      let response6 = {
         quick_replies: [
           {
             content_type: "text",
@@ -156,6 +160,8 @@ let showSDR = (sender_psid) => {
       await sendMessage(sender_psid, response2);
       await sendMessage(sender_psid, response3);
       await sendMessage(sender_psid, response4);
+      await sendMessage(sender_psid, response5);
+      await sendMessage(sender_psid, response6);
       resolve("done");
     } catch (e) {
       reject(e);
@@ -167,17 +173,19 @@ let showSTR = (sender_psid) => {
     try {
       let response1 = {
         text: "Room area - 20 métre carré  ",
-        text: "Ideal for : 2 adults  ",
+      };
+      let response2 = { text: "Ideal for : 2 adults  " };
+      let response3 = {
         text:
           "*Please note: no extra bed/children's cots/cribs possible in this room type.",
       };
-      let response2 = templateMessage.sendSTRTemplate();
-      let response3 = {
-        text: "Room Facilities : ",
+
+      let response4 = templateMessage.sendSTRTemplate();
+      let response5 = {
         text:
-          "Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi ",
+          "Room Facilities : Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi ",
       };
-      let response4 = {
+      let response6 = {
         quick_replies: [
           {
             content_type: "text",
@@ -190,6 +198,8 @@ let showSTR = (sender_psid) => {
       await sendMessage(sender_psid, response2);
       await sendMessage(sender_psid, response3);
       await sendMessage(sender_psid, response4);
+      await sendMessage(sender_psid, response5);
+      await sendMessage(sender_psid, response6);
       resolve("done");
     } catch (e) {
       reject(e);
@@ -200,16 +210,13 @@ let showDTR = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
       let response1 = {
-        text: "Room area - 30 métre carré  ",
-        text: "Ideal for : 2 adults  ",
         text:
-          "*Please note: one older child or adult is charged per person night in an extra bed.",
+          "Room area - 30 métre carré  Ideal for : 2 adults  *Please note: one older child or adult is charged per person night in an extra bed.",
       };
       let response2 = templateMessage.sendDTRTemplate();
       let response3 = {
-        text: "Room Facilities : ",
         text:
-          "Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi , Sitting area, Satellite channels",
+          "Room Facilities : Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi , Sitting area, Satellite channels",
       };
       let response4 = {
         quick_replies: [
