@@ -1,5 +1,6 @@
 import request from "request";
 import homepageService from "./homepageService";
+import templateMessage from "./templateMessage";
 
 const PAGE_ACCESS_TOKEN =
   "EAADZAfbtciMUBAKJgZC6XGsG8ZA7FmrfP1VnzOUuiGgHVlOJkPxs5aMQQeiqaD9GYl2uZAlwUxcsjEDOZCc7XcpvZBYFBZBIklOSjnDx2Kc07c3vZBlVrtyn7BL1lzOULacOCGQhTfN9U5FLTKXuUwZAW3jUS7ilbCThnNVaVzbAEZCwZDZD";
@@ -32,13 +33,18 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
         quick_replies: [
           {
             content_type: "text",
-            title: "Categories",
-            payload: "CATEGORIES",
+            title: "Find and Book",
+            payload: "FIND_AND_BOOK",
           },
           {
             content_type: "text",
-            title: "Lookup Order",
-            payload: "LOOKUP_ORDER",
+            title: "Special offers",
+            payload: "SPECIAL_OFFERS",
+          },
+          {
+            content_type: "text",
+            title: "Rooms&Suites",
+            payload: "ROOMS_AND_SUITS",
           },
           {
             content_type: "text",
@@ -92,87 +98,230 @@ let sendMessage = (sender_psid, response) => {
     }
   });
 };
-let sendCategories = (sender_psid) => {
+let sendRooms_Suites = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      //send a generic template message
-      let response = {
-        attachment: {
-          type: "template",
-          payload: {
-            template_type: "generic",
-            elements: [
-              {
-                title: "Welcome1!",
-                image_url: "https://petersfancybrownhats.com/company_image.png",
-                subtitle: "We have the right hat for everyone.",
-                default_action: {
-                  type: "web_url",
-                  url: "https://petersfancybrownhats.com/view?item=103",
-                  webview_height_ratio: "tall",
-                },
-                buttons: [
-                  {
-                    type: "web_url",
-                    url: "https://petersfancybrownhats.com",
-                    title: "View Website",
-                  },
-                  {
-                    type: "postback",
-                    title: "Start Chatting",
-                    payload: "DEVELOPER_DEFINED_PAYLOAD",
-                  },
-                ],
-              },
-              {
-                title: "Welcome2!",
-                image_url: "https://petersfancybrownhats.com/company_image.png",
-                subtitle: "We have the right hat for everyone.",
-                default_action: {
-                  type: "web_url",
-                  url: "https://petersfancybrownhats.com/view?item=103",
-                  webview_height_ratio: "tall",
-                },
-                buttons: [
-                  {
-                    type: "web_url",
-                    url: "https://petersfancybrownhats.com",
-                    title: "View Website",
-                  },
-                  {
-                    type: "postback",
-                    title: "Start Chatting",
-                    payload: "DEVELOPER_DEFINED_PAYLOAD",
-                  },
-                ],
-              },
-              {
-                title: "Welcome3!",
-                image_url: "https://petersfancybrownhats.com/company_image.png",
-                subtitle: "We have the right hat for everyone.",
-                default_action: {
-                  type: "web_url",
-                  url: "https://petersfancybrownhats.com/view?item=103",
-                  webview_height_ratio: "tall",
-                },
-                buttons: [
-                  {
-                    type: "web_url",
-                    url: "https://petersfancybrownhats.com",
-                    title: "View Website",
-                  },
-                  {
-                    type: "postback",
-                    title: "Start Chatting",
-                    payload: "DEVELOPER_DEFINED_PAYLOAD",
-                  },
-                ],
-              },
-            ],
-          },
-        },
+      let response1 = {
+        text: "We have the following room types available ",
       };
+
+      let response2 = templateMessage.sendRooms_SuitesTemplate();
+      let response3 = {
+        text: "Need more space? Check out our suites ",
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "Suites",
+            payload: "SUITES",
+          },
+        ],
+      };
+      await sendMessage(sender_psid, response1);
+      await sendMessage(sender_psid, response2);
+      await sendMessage(sender_psid, response3);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let backToRooms_Suites = (sender_psid) => {
+  sendRooms_Suites(sender_psid);
+};
+let showSDR = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = {
+        text: "Room area - 25 métre carré  ",
+        text: "Ideal for : 2 adults  ",
+        text:
+          "*Please note: no extra bed/children's cots/cribs possible in this room type.",
+      };
+      let response2 = templateMessage.sendSDRTemplate();
+      let response3 = {
+        text: "Room Facilities : ",
+        text:
+          "Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi ",
+      };
+      let response4 = {
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "CHECK AVAILABILITY",
+            payload: "CHECK_AVAILABILITY",
+          },
+        ],
+      };
+      await sendMessage(sender_psid, response1);
+      await sendMessage(sender_psid, response2);
+      await sendMessage(sender_psid, response3);
+      await sendMessage(sender_psid, response4);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let showSTR = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = {
+        text: "Room area - 20 métre carré  ",
+        text: "Ideal for : 2 adults  ",
+        text:
+          "*Please note: no extra bed/children's cots/cribs possible in this room type.",
+      };
+      let response2 = templateMessage.sendSTRTemplate();
+      let response3 = {
+        text: "Room Facilities : ",
+        text:
+          "Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi ",
+      };
+      let response4 = {
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "CHECK AVAILABILITY",
+            payload: "CHECK_AVAILABILITY",
+          },
+        ],
+      };
+      await sendMessage(sender_psid, response1);
+      await sendMessage(sender_psid, response2);
+      await sendMessage(sender_psid, response3);
+      await sendMessage(sender_psid, response4);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let showDTR = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = {
+        text: "Room area - 30 métre carré  ",
+        text: "Ideal for : 2 adults  ",
+        text:
+          "*Please note: one older child or adult is charged per person night in an extra bed.",
+      };
+      let response2 = templateMessage.sendDTRTemplate();
+      let response3 = {
+        text: "Room Facilities : ",
+        text:
+          "Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi , Sitting area, Satellite channels",
+      };
+      let response4 = {
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "CHECK AVAILABILITY",
+            payload: "CHECK_AVAILABILITY",
+          },
+        ],
+      };
+      await sendMessage(sender_psid, response1);
+      await sendMessage(sender_psid, response2);
+      await sendMessage(sender_psid, response3);
+      await sendMessage(sender_psid, response4);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let showEKR = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = {
+        text: "Room area - 32 métre carré  ",
+        text: "Ideal for : 2 adults and 1 child ",
+        text:
+          "This Family room features a mini-bar, electric Kettle and air conditioning.",
+      };
+      let response2 = templateMessage.sendFRTemplate();
+      let response3 = {
+        text: "Room Facilities : ",
+        text:
+          "Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi ",
+      };
+      let response4 = {
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "CHECK AVAILABILITY",
+            payload: "CHECK_AVAILABILITY",
+          },
+        ],
+      };
+      await sendMessage(sender_psid, response1);
+      await sendMessage(sender_psid, response2);
+      await sendMessage(sender_psid, response3);
+      await sendMessage(sender_psid, response4);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let showFR = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = {
+        text: "Room area - 37 métre carré  ",
+        text: "Ideal for : 2 adults and 2 children ",
+        text:
+          "Up to two children from 0 to 12 years stay free of charge for extra beds",
+      };
+      let response2 = templateMessage.sendFRTemplate();
+      let response3 = {
+        text: "Room Facilities : ",
+        text:
+          "Minibar, Flat-screen TV, Air conditioning, Hairdryer, Iron, iPad, Coffee machine, Free in-room Wi-Fi ,Sitting area, Satellite channels, Sofa bed, Executive Lounge Access Laptop Safe",
+      };
+      let response4 = {
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "CHECK AVAILABILITY",
+            payload: "CHECK_AVAILABILITY",
+          },
+        ],
+      };
+      await sendMessage(sender_psid, response1);
+      await sendMessage(sender_psid, response2);
+      await sendMessage(sender_psid, response3);
+      await sendMessage(sender_psid, response4);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let backToMainMenu = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response = templateMessage.backToMainMenuTemplate();
       await sendMessage(sender_psid, response);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let requestTalkToAgent = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      //send a text message
+      let response1 = {
+        text: "Ok. Someone real will be with you in a few minutes ^^",
+      };
+
+      await sendMessage(sender_psid, response1);
+
+      //change this conversation to page inbox
+      let app = "page_inbox";
+      await passThreadControl(sender_psid, app);
       resolve("done");
     } catch (e) {
       reject(e);
@@ -182,5 +331,14 @@ let sendCategories = (sender_psid) => {
 module.exports = {
   sendMessage: sendMessage,
   sendMessageWelcomeNewUser: sendMessageWelcomeNewUser,
-  sendCategories: sendCategories,
+  sendRooms_Suites: sendRooms_Suites,
+  showSDR: showSDR,
+  showSTR: showSTR,
+  showDTR: showDTR,
+  showFR: showFR,
+  showEKR: showEKR,
+
+  backToRooms_Suites: backToRooms_Suites,
+  backToMainMenu: backToMainMenu,
+  requestTalkToAgent: requestTalkToAgent,
 };

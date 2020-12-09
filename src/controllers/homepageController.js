@@ -67,8 +67,8 @@ let handleMessage = async (sender_psid, received_message) => {
     received_message.quick_reply.payload
   ) {
     let payload = received_message.quick_reply.payload;
-    if (payload === "CATEGORIES") {
-      await chatbotService.sendCategories(sender_psid);
+    if (payload === "ROOMS_AND_SUITS") {
+      await chatbotService.sendRooms_Suites(sender_psid);
     } else if (payload === "LOOKUP_ORDER") {
       await chatbotService.sendLookupOrder(sender_psid);
     } else if (payload === "TALK_AGENT") {
@@ -137,8 +137,30 @@ let handlePostback = async (sender_psid, received_postback) => {
       response = { text: "Oops, try sending another image." };
       break;
     case "GET_STARTED":
+    case "RESTART_CONVERSATION":
       await chatbotService.sendMessageWelcomeNewUser(sender_psid);
 
+      break;
+    case "TALK_AGENT":
+      await chatbotService.requestTalkToAgent(sender_psid);
+      break;
+    case "SDRoom":
+      await chatbotService.showSDR(sender_psid);
+      break;
+    case "STRoom":
+      await chatbotService.showSTR(sender_psid);
+      break;
+    case "STRoom":
+      await chatbotService.showDTR(sender_psid);
+      break;
+    case "FROOM":
+      await chatbotService.showFR(sender_psid);
+      break;
+    case "BACK_TO_CATEGORIES":
+      await chatbotService.backToCategories(sender_psid);
+      break;
+    case "BACK_TO_MAIN_MENU":
+      await chatbotService.backToMainMenu(sender_psid);
       break;
     default:
       console.log("run default switch case");
