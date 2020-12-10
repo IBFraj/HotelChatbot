@@ -217,6 +217,70 @@ let sendDTRTemplate = () => {
     },
   };
 };
+let setInfoOrderTemplate = () => {
+  return {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "button",
+        text:
+          "We're checking your order. We will send you a message when the process is complete." +
+          "\nThank you!",
+        buttons: [
+          {
+            type: "postback",
+            title: "Main menu",
+            payload: "BACK_TO_MAIN_MENU",
+          },
+        ],
+      },
+    },
+  };
+};
+let sendFind_BookTemplate = () => {
+  return {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            text: "When would you like to check-in?",
+
+            buttons: [
+              {
+                type: "web_url",
+                url: "https://bit.ly/webHeadphones",
+                title: "PICK A DATE",
+              },
+              {
+                type: "postback",
+                title: "ENTER A DATE",
+                payload: "Enteradate",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+};
+let sendSpecial_offers = () => {
+  return {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "*Vacation Packages & Exclusive Offers*",
+            image_url: "https://bit.ly/imageHeadphone1a",
+          },
+        ],
+      },
+    },
+  };
+};
 
 module.exports = {
   sendRooms_SuitesTemplate: sendRooms_SuitesTemplate,
@@ -224,4 +288,7 @@ module.exports = {
   sendSTRTemplate: sendSTRTemplate,
   sendDTRTemplate: sendDTRTemplate,
   sendFRTemplate: sendFRTemplate,
+  sendSpecial_offers: sendSpecial_offers,
+  sendFind_BookTemplate: sendFind_BookTemplate,
+  setInfoOrderTemplate: setInfoOrderTemplate,
 };

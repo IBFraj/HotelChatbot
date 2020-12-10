@@ -316,6 +316,97 @@ let backToMainMenu = (sender_psid) => {
     }
   });
 };
+let sendFind_Book = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let username = await homepageService.getFacebookUsername(sender_psid);
+      let response1 = {
+        text: `Sounds good ${username}! `,
+      };
+
+      let response2 = templateMessage.sendFind_BookTemplate();
+
+      await sendMessage(sender_psid, response1);
+      await sendMessage(sender_psid, response2);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let sendEnter_Date = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = {
+        text:
+          "Check-in dates must be in the future!Please enter a date in day/month/year(e.g 15 jun or 15/06/2020).",
+      };
+
+      await sendMessage(sender_psid, response1);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let sendSpecial_offers = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response2 = templateMessage.sendSpecial_offers();
+      let response3 = {
+        text:
+          "A variety of exclusive offers and promotions are available exclusively on Messenger",
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "25% off your stay",
+            payload: "STAY",
+          },
+          {
+            content_type: "text",
+            title: "20% off your stuite",
+            payload: "STAySuite",
+          },
+        ],
+      };
+
+      await sendMessage(sender_psid, response2);
+      await sendMessage(sender_psid, response3);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+let sendStay_offre = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = {
+        text: "*Up to 25% Off plus 25$ Cocktail Credit* ",
+      };
+      let response2 = {
+        text:
+          "*Up to 25% Off your stay " +
+          "/n25$ Beverage Credit at the Cocktail Collective*: " +
+          "/n*The Dorsey" +
+          "/n*Rosina" +
+          "/n*Electra" +
+          "/nNo nightly minimum stay " +
+          "/n" +
+          "/nMust book before 30/01/2021",
+      };
+
+      await sendMessage(sender_psid, response1);
+      await sendMessage(sender_psid, response2);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
 let requestTalkToAgent = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -335,6 +426,7 @@ let requestTalkToAgent = (sender_psid) => {
     }
   });
 };
+
 module.exports = {
   sendMessage: sendMessage,
   sendMessageWelcomeNewUser: sendMessageWelcomeNewUser,
@@ -344,6 +436,10 @@ module.exports = {
   showDTR: showDTR,
   showFR: showFR,
   showEKR: showEKR,
+  sendFind_Book: sendFind_Book,
+  sendEnter_Date: sendEnter_Date,
+  sendSpecial_offers: sendSpecial_offers,
+  sendStay_offre: sendStay_offre,
 
   backToRooms_Suites: backToRooms_Suites,
   backToMainMenu: backToMainMenu,
