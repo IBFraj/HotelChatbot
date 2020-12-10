@@ -24,7 +24,7 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
       };
 
       let response3 = {
-        text: "How may we serve you today " + "/nPlease select an option below",
+        text: "How may we serve you today " + "\nPlease select an option below",
       };
 
       let response4 = {
