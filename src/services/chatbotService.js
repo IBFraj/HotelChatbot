@@ -11,7 +11,7 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
       let username = await homepageService.getFacebookUsername(sender_psid);
 
       let response1 = {
-        text: `Hi ${username}! Welcome to MoodyMoon Hotel , where you will find what you need.`,
+        text: `Hi ${username}! Welcome to *MoodyMoon Hotel* `,
       };
 
       let response2 = {
@@ -24,8 +24,7 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
       };
 
       let response3 = {
-        text:
-          "At any time, use the menu below to navigate through the features.",
+        text: "How may we serve you today " + "/nPlease select an option below",
       };
 
       let response4 = {
@@ -320,6 +319,7 @@ let sendFind_Book = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
       let username = await homepageService.getFacebookUsername(sender_psid);
+
       let response1 = {
         text: `Sounds good ${username}! `,
       };

@@ -217,26 +217,7 @@ let sendDTRTemplate = () => {
     },
   };
 };
-let setInfoOrderTemplate = () => {
-  return {
-    attachment: {
-      type: "template",
-      payload: {
-        template_type: "button",
-        text:
-          "We're checking your order. We will send you a message when the process is complete." +
-          "\nThank you!",
-        buttons: [
-          {
-            type: "postback",
-            title: "Main menu",
-            payload: "BACK_TO_MAIN_MENU",
-          },
-        ],
-      },
-    },
-  };
-};
+
 let sendFind_BookTemplate = () => {
   return {
     attachment: {
@@ -245,7 +226,8 @@ let sendFind_BookTemplate = () => {
         template_type: "generic",
         elements: [
           {
-            text: "When would you like to check-in?",
+            title: "When would you like to check-in?",
+            image_url: "https://bit.ly/imageHeadphone1c",
 
             buttons: [
               {
@@ -276,10 +258,6 @@ let sendSpecial_offersTemplate = () => {
             title: "*Vacation Packages & Exclusive Offers*",
             image_url: "https://bit.ly/imageHeadphone1a",
           },
-          {
-            title: "*Vacation Packages & Exclusive Offers*",
-            image_url: "https://bit.ly/imageHeadphone1a",
-          },
         ],
       },
     },
@@ -294,5 +272,4 @@ module.exports = {
   sendFRTemplate: sendFRTemplate,
   sendSpecial_offersTemplate: sendSpecial_offersTemplate,
   sendFind_BookTemplate: sendFind_BookTemplate,
-  setInfoOrderTemplate: setInfoOrderTemplate,
 };
