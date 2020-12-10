@@ -263,6 +263,28 @@ let sendSpecial_offersTemplate = () => {
     },
   };
 };
+let backToMainMenuTemplate = () => {
+  return {
+    text: "What can I do to help you today?",
+    quick_replies: [
+      {
+        content_type: "text",
+        title: "ROOMS AND SUITS",
+        payload: "ROOMS_AND_SUITS",
+      },
+      {
+        content_type: "text",
+        title: "FIND AND BOOK",
+        payload: "FIND_AND_BOOK",
+      },
+      {
+        content_type: "text",
+        title: "SPECIAL OFFERS",
+        payload: "SPECIAL_OFFERS",
+      },
+    ],
+  };
+};
 
 module.exports = {
   sendRooms_SuitesTemplate: sendRooms_SuitesTemplate,
@@ -272,4 +294,5 @@ module.exports = {
   sendFRTemplate: sendFRTemplate,
   sendSpecial_offersTemplate: sendSpecial_offersTemplate,
   sendFind_BookTemplate: sendFind_BookTemplate,
+  backToMainMenuTemplate: backToMainMenuTemplate,
 };

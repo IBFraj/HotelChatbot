@@ -23,8 +23,8 @@ let handleSetupProfileAPI = () => {
               },
               {
                 type: "postback",
-                title: "Restart this conversation",
-                payload: "RESTART_CONVERSATION",
+                title: "Menu",
+                payload: "Menu",
               },
               {
                 type: "postback",

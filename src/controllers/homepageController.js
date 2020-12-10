@@ -71,7 +71,7 @@ let handleMessage = async (sender_psid, received_message) => {
       await chatbotService.sendRooms_Suites(sender_psid);
     } else if (payload === "FIND_AND_BOOK") {
       await chatbotService.sendFind_Book(sender_psid);
-    } else if (payload === " SPECIAL_OFFERS") {
+    } else if (payload === "SPECIAL_OFFERS") {
       await chatbotService.sendSpecial_offers(sender_psid);
     } else if (payload === "STAY") {
       await chatbotService.sendStay_offre(sender_psid);
@@ -161,7 +161,7 @@ let handlePostback = async (sender_psid, received_postback) => {
     case "BACK_TO_CATEGORIES":
       await chatbotService.backToCategories(sender_psid);
       break;
-    case "BACK_TO_MAIN_MENU":
+    case "MENU":
       await chatbotService.backToMainMenu(sender_psid);
       break;
 
