@@ -69,10 +69,10 @@ let handleMessage = async (sender_psid, received_message) => {
     let payload = received_message.quick_reply.payload;
     if (payload === "ROOMS_AND_SUITS") {
       await chatbotService.sendRooms_Suites(sender_psid);
-    } else if (payload === "LOOKUP_ORDER") {
-      await chatbotService.sendLookupOrder(sender_psid);
-    } else if (payload === "TALK_AGENT") {
-      await chatbotService.requestTalkToAgent(sender_psid);
+    } else if (payload === "FIND_AND_BOOK") {
+      await chatbotService.sendFind_Book(sender_psid);
+    } else if (payload === " SPECIAL_OFFERS") {
+      await chatbotService.sendSpecial_offers(sender_psid);
     }
 
     return;
@@ -162,15 +162,11 @@ let handlePostback = async (sender_psid, received_postback) => {
     case "BACK_TO_MAIN_MENU":
       await chatbotService.backToMainMenu(sender_psid);
       break;
-    case "FIND_AND_BOOK":
-      await chatbotService.sendFind_Book(sender_psid);
-      break;
+
     case "Enteradate":
       await chatbotService.sendEnter_Date(sender_psid);
       break;
-    case "SPECIAL_OFFERS":
-      await chatbotService.sendSpecial_offers(sender_psid);
-      break;
+
     case "STAY":
       await chatbotService.sendStay_offre(sender_psid);
       break;
