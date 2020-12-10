@@ -26,6 +26,11 @@ let sendRooms_SuitesTemplate = () => {
                 title: "ROOM DETAILS",
                 payload: "SDRoom",
               },
+              {
+                type: "postback",
+                title: "Back to Menu",
+                payload: "MENU",
+              },
             ],
           },
           {
@@ -48,6 +53,11 @@ let sendRooms_SuitesTemplate = () => {
                 type: "postback",
                 title: "ROOM DETAILS",
                 payload: "STRoom",
+              },
+              {
+                type: "postback",
+                title: "Menu",
+                payload: "MENU",
               },
             ],
           },
@@ -72,6 +82,11 @@ let sendRooms_SuitesTemplate = () => {
                 title: "ROOM DETAILS",
                 payload: "DTROOM ",
               },
+              {
+                type: "postback",
+                title: "Menu",
+                payload: "MENU",
+              },
             ],
           },
           {
@@ -95,6 +110,11 @@ let sendRooms_SuitesTemplate = () => {
                 title: "ROOM DETAILS",
                 payload: "FROOM",
               },
+              {
+                type: "postback",
+                title: "Menu",
+                payload: "MENU",
+              },
             ],
           },
           {
@@ -117,6 +137,11 @@ let sendRooms_SuitesTemplate = () => {
                 type: "postback",
                 title: "ROOM DETAILS",
                 payload: "ETROOM",
+              },
+              {
+                type: "postback",
+                title: "Menu",
+                payload: "MENU",
               },
             ],
           },
