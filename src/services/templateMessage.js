@@ -276,6 +276,10 @@ let sendSpecial_offersTemplate = () => {
             title: "*Vacation Packages & Exclusive Offers*",
             image_url: "https://bit.ly/imageHeadphone1a",
           },
+          {
+            title: "*Vacation Packages & Exclusive Offers*",
+            image_url: "https://bit.ly/imageHeadphone1a",
+          },
         ],
       },
     },

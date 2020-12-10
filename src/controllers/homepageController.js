@@ -73,6 +73,8 @@ let handleMessage = async (sender_psid, received_message) => {
       await chatbotService.sendFind_Book(sender_psid);
     } else if (payload === " SPECIAL_OFFERS") {
       await chatbotService.sendSpecial_offers(sender_psid);
+    } else if (payload === "STAY") {
+      await chatbotService.sendStay_offre(sender_psid);
     }
 
     return;
@@ -167,9 +169,6 @@ let handlePostback = async (sender_psid, received_postback) => {
       await chatbotService.sendEnter_Date(sender_psid);
       break;
 
-    case "STAY":
-      await chatbotService.sendStay_offre(sender_psid);
-      break;
     default:
       console.log("run default switch case");
   }
