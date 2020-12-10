@@ -29,7 +29,8 @@ let handleSetupProfileAPI = () => {
               {
                 type: "postback",
                 title: "View website",
-                url: "https://www.originalcoastclothing.com/",
+                url:
+                  "https://www.booking.com/searchresults.en-gb.html?aid=311984;label=la-badira-hammamet-8e1AM_gr6HRu154EtQhxQQS392853166950%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-73310516564%3Alp1012760%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YXwxhKG0pUU-mcMVT-JwQpc;sid=958122cbb9539744fc487f961f614ed0;city=-722356;expand_sb=1;highlighted_hotels=1176363;hlrd=no_dates;keep_landing=1;redirected=1;source=hotel&gclid=CjwKCAiAq8f-BRBtEiwAGr3DgbNsan49RhRiSPtjrYTtFriG_yLvdII26_knLS-NVUY3P5G1h_UpShoCQ5cQAvD_BwE&room1=A,A,;",
                 webview_height_ratio: "full",
               },
             ],
