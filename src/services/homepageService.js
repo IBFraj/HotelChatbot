@@ -24,7 +24,7 @@ let handleSetupProfileAPI = () => {
               {
                 type: "postback",
                 title: "Menu",
-                payload: "Menu",
+                payload: "MENU",
               },
               {
                 type: "postback",
