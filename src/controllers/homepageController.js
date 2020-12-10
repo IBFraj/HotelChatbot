@@ -162,6 +162,18 @@ let handlePostback = async (sender_psid, received_postback) => {
     case "BACK_TO_MAIN_MENU":
       await chatbotService.backToMainMenu(sender_psid);
       break;
+    case "FIND_AND_BOOK":
+      await chatbotService.sendFind_Book(sender_psid);
+      break;
+    case "Enteradate":
+      await chatbotService.sendEnter_Date(sender_psid);
+      break;
+    case "SPECIAL_OFFERS":
+      await chatbotService.sendSpecial_offers(sender_psid);
+      break;
+    case "STAY":
+      await chatbotService.sendStay_offre(sender_psid);
+      break;
     default:
       console.log("run default switch case");
   }
