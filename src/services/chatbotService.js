@@ -354,7 +354,7 @@ let sendEnter_Date = (sender_psid) => {
 let sendSpecial_offers = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let response2 = templateMessage.sendSpecial_offers();
+      let response2 = templateMessage.sendSpecial_offersTemplate();
       let response3 = {
         text:
           "A variety of exclusive offers and promotions are available exclusively on Messenger",

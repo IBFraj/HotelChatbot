@@ -265,7 +265,7 @@ let sendFind_BookTemplate = () => {
     },
   };
 };
-let sendSpecial_offers = () => {
+let sendSpecial_offersTemplate = () => {
   return {
     attachment: {
       type: "template",
@@ -288,7 +288,7 @@ module.exports = {
   sendSTRTemplate: sendSTRTemplate,
   sendDTRTemplate: sendDTRTemplate,
   sendFRTemplate: sendFRTemplate,
-  sendSpecial_offers: sendSpecial_offers,
+  sendSpecial_offersTemplate: sendSpecial_offersTemplate,
   sendFind_BookTemplate: sendFind_BookTemplate,
   setInfoOrderTemplate: setInfoOrderTemplate,
 };
