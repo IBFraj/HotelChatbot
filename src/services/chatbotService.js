@@ -23,12 +23,8 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
         },
       };
 
-      let response3 = {
-        text: "How may we serve you today " + "\nPlease select an option below",
-      };
-
       let response4 = {
-        text: "What can I do to help you today?",
+        text: "How may we serve you today " + "\nPlease select an option below",
         quick_replies: [
           {
             content_type: "text",
@@ -55,7 +51,7 @@ let sendMessageWelcomeNewUser = (sender_psid) => {
 
       await sendMessage(sender_psid, response1);
       await sendMessage(sender_psid, response2);
-      await sendMessage(sender_psid, response3);
+
       await sendMessage(sender_psid, response4);
       resolve("done");
     } catch (e) {
@@ -351,6 +347,28 @@ let sendEnter_Date = (sender_psid) => {
     }
   });
 };
+let handleReservation = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let username = await getFacebookUsername(sender_psid);
+      let response = `Hi ${username},when would you like to check-in ?  `;
+      let response4 = {
+        quick_replies: [
+          {
+            content_type: "text",
+            title: "Enter a date",
+            payload: "ENTER_A_DATE",
+          },
+        ],
+      };
+      await sendMessage(sender_psid, response);
+      await sendMessage(sender_psid, response4);
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
 let sendSpecial_offers = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -440,6 +458,7 @@ module.exports = {
   sendEnter_Date: sendEnter_Date,
   sendSpecial_offers: sendSpecial_offers,
   sendStay_offre: sendStay_offre,
+  handleReservation: handleReservation,
 
   backToRooms_Suites: backToRooms_Suites,
   backToMainMenu: backToMainMenu,

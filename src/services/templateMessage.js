@@ -17,8 +17,8 @@ let sendRooms_SuitesTemplate = () => {
             },
             buttons: [
               {
-                type: "web_url",
-                url: "https://bit.ly/webHeadphones",
+                type: "postback",
+                payload: "CHEK_AVAILABILITY",
                 title: "CHEK AVAILABILITY",
               },
               {
@@ -45,8 +45,8 @@ let sendRooms_SuitesTemplate = () => {
             },
             buttons: [
               {
-                type: "web_url",
-                url: "https://bit.ly/webHeadphones",
+                type: "postback",
+                payload: "CHEK_AVAILABILITY",
                 title: "CHEK AVAILABILITY",
               },
               {
@@ -73,8 +73,8 @@ let sendRooms_SuitesTemplate = () => {
             },
             buttons: [
               {
-                type: "web_url",
-                url: "https://bit.ly/webHeadphones",
+                type: "postback",
+                payload: "CHEK_AVAILABILITY",
                 title: "CHEK AVAILABILITY",
               },
               {
@@ -101,8 +101,8 @@ let sendRooms_SuitesTemplate = () => {
             },
             buttons: [
               {
-                type: "web_url",
-                url: "https://bit.ly/webHeadphones",
+                type: "postback",
+                payload: "CHEK_AVAILABILITY",
                 title: "CHEK AVAILABILITY",
               },
               {
@@ -129,8 +129,8 @@ let sendRooms_SuitesTemplate = () => {
             },
             buttons: [
               {
-                type: "web_url",
-                url: "https://bit.ly/webHeadphones",
+                type: "postback",
+                payload: "CHEK_AVAILABILITY",
                 title: "CHEK AVAILABILITY",
               },
               {
