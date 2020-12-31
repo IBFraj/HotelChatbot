@@ -331,22 +331,6 @@ let sendFind_Book = (sender_psid) => {
     }
   });
 };
-let sendEnter_Date = (sender_psid) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      let response1 = {
-        text:
-          "Check-in dates must be in the future!Please enter a date in day/month/year(e.g 15 jun or 15/06/2020).",
-      };
-
-      await sendMessage(sender_psid, response1);
-
-      resolve("done");
-    } catch (e) {
-      reject(e);
-    }
-  });
-};
 let handleReservation = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -369,6 +353,23 @@ let handleReservation = (sender_psid) => {
     }
   });
 };
+let sendEnter_Date = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let response1 = {
+        text:
+          "Check-in dates must be in the future!Please enter a date in day/month/year(e.g 15 jun or 15/06/2020).",
+      };
+
+      await sendMessage(sender_psid, response1);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 let sendSpecial_offers = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
