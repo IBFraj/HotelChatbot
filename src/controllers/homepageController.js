@@ -165,8 +165,11 @@ let handlePostback = async (sender_psid, received_postback) => {
       await chatbotService.backToMainMenu(sender_psid);
       break;
 
-    case "Enteradate":
+    case "ENTER_A_DATE":
       await chatbotService.sendEnter_Date(sender_psid);
+      break;
+    case "CHEK_AVAILABILITY":
+      await chatbotService.handleReservation(sender_psid);
       break;
 
     default:
