@@ -75,6 +75,10 @@ let handleMessage = async (sender_psid, received_message) => {
       await chatbotService.sendSpecial_offers(sender_psid);
     } else if (payload === "STAY") {
       await chatbotService.sendStay_offre(sender_psid);
+    } else if (payload === "CHEK_AVAILABILITY") {
+      await chatbotService.handleReservation(sender_psid);
+    } else if (payload === "ENTER_A_DATE") {
+      await chatbotService.sendEnter_Date(sender_psid);
     }
 
     return;
@@ -163,13 +167,6 @@ let handlePostback = async (sender_psid, received_postback) => {
       break;
     case "MENU":
       await chatbotService.backToMainMenu(sender_psid);
-      break;
-
-    case "ENTER_A_DATE":
-      await chatbotService.sendEnter_Date(sender_psid);
-      break;
-    case "CHEK_AVAILABILITY":
-      await chatbotService.handleReservation(sender_psid);
       break;
 
     default:

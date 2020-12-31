@@ -146,7 +146,7 @@ let showSDR = (sender_psid) => {
         quick_replies: [
           {
             content_type: "text",
-            title: "CHECK AVAILABILITY",
+            title: "CHeck availability",
             payload: "CHECK_AVAILABILITY",
           },
         ],
@@ -184,7 +184,7 @@ let showSTR = (sender_psid) => {
         quick_replies: [
           {
             content_type: "text",
-            title: "CHECK AVAILABILITY",
+            title: "CHeck availability",
             payload: "CHECK_AVAILABILITY",
           },
         ],
@@ -217,7 +217,7 @@ let showDTR = (sender_psid) => {
         quick_replies: [
           {
             content_type: "text",
-            title: "CHECK AVAILABILITY",
+            title: "CHeck availability",
             payload: "CHECK_AVAILABILITY",
           },
         ],
@@ -251,7 +251,7 @@ let showEKR = (sender_psid) => {
         quick_replies: [
           {
             content_type: "text",
-            title: "CHECK AVAILABILITY",
+            title: "CHeck availability",
             payload: "CHECK_AVAILABILITY",
           },
         ],
@@ -285,7 +285,7 @@ let showFR = (sender_psid) => {
         quick_replies: [
           {
             content_type: "text",
-            title: "CHECK AVAILABILITY",
+            title: "CHeck availability",
             payload: "CHECK_AVAILABILITY",
           },
         ],
@@ -335,7 +335,7 @@ let handleReservation = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
       let username = await getFacebookUsername(sender_psid);
-      let response = `Hi ${username},when would you like to check-in ?  `;
+      let response = `Hi ${username},when would you like to check-in ?`;
       let response4 = {
         quick_replies: [
           {
